@@ -23,7 +23,7 @@ namespace odr {
         }
 
         _Attribute<T> &operator=(const T &v) {
-            std::unique_ptr<T>(std::make_unique<T>(v));
+            this->reset(new T(v));
             return *this;
         }
 

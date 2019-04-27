@@ -9,7 +9,7 @@
 
 namespace odr {
 
-    const OpenDRIVE *loadFile(const std::string &filename) {
+    void loadFile(const std::string &filename, OpenDRIVEFile &data) {
 
         // xml document
         tinyxml2::XMLDocument xml_doc;
@@ -19,10 +19,7 @@ namespace odr {
         if (eResult != tinyxml2::XML_SUCCESS)
             throw std::runtime_error("File could not be loaded!");
 
-        std::vector<std::unique_ptr<OpenDRIVE>> odrvec{};
-        __parse__OpenDRIVE((tinyxml2::XMLElement *) &xml_doc, "OpenDRIVE", odrvec);
-
-        return odrvec.at(0).get();
+        __parse__OpenDRIVE((tinyxml2::XMLElement *) &xml_doc, "OpenDRIVE", data.OpenDRIVE);
 
     }
 

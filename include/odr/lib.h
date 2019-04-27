@@ -10,7 +10,11 @@
 
 namespace odr {
 
-    const OpenDRIVE *loadFile(const std::string &filename);
+    struct OpenDRIVEFile {
+        std::vector<std::unique_ptr<OpenDRIVE>> OpenDRIVE{};
+    };
+
+    void loadFile(const std::string &filename, OpenDRIVEFile &data);
 
 }
 

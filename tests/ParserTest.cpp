@@ -12,7 +12,17 @@
 
 TEST(ParserTest, LoadODRFile) {
 
-    odr::loadFile("tests/resources/sample1.1.xodr");
+    odr::OpenDRIVEFile odrFile;
+    odr::loadFile("tests/resources/sample1.1.xodr", odrFile);
+
+    odr::OpenDRIVE *odrr = odrFile.OpenDRIVE.front().get();
+
+    const auto header = odrr->_s__header.front().get();
+    EXPECT_EQ("Thu Feb  8 14:24:06 2007", *header->_f__date.get());
+
+    const auto &roads = odrr->_s__road;
+    EXPECT_EQ(36, roads.size());
+
 
 }
 
