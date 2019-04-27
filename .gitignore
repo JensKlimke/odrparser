@@ -30,3 +30,7 @@
 *.exe
 *.out
 *.app
+
+cmake-*
+.idea
+test/generated*
