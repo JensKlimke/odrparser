@@ -7,45 +7,40 @@
 
 #include <memory>
 #include <vector>
+#include <iostream>
 
-namespace odr {
+namespace xsd {
 
 
     template<typename T>
-    struct _Attribute : public std::unique_ptr<T> {
+    struct Attribute : public std::shared_ptr<T> {
 
-        _Attribute() = default;
+        Attribute() = default;
 
-        virtual ~_Attribute() = default;
+        virtual ~Attribute() = default;
 
-        explicit _Attribute(const T &v) {
-            std::unique_ptr<T>(std::make_unique<T>(v));
+        Attribute<T> &operator=(const T &v) {
+            this->reset(new T(v));
+            return *this;
         }
 
-        _Attribute<T> &operator=(const T &v) {
-            this->reset(new T(v));
+        Attribute<T> &create() {
+            this->reset(new T);
             return *this;
         }
 
     };
 
 
+    typedef Attribute<double> d_double;
+    typedef Attribute<int> d_int;
+    typedef Attribute<unsigned int> d_uint;
+    typedef Attribute<std::string> d_string;
+    typedef Attribute<float> d_float;
+
+
     template<typename T>
-    struct _Vector : public _Attribute<std::vector<T>> {
-
-        T &operator[](size_t i) {
-
-            return *this->at(i);
-
-        }
-
-    };
-
-
-    template<int N>
-    struct _Union {
-
-    };
+    using Vector = std::vector<T>;
 
 }
 

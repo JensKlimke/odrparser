@@ -19,7 +19,14 @@ namespace odr {
         if (eResult != tinyxml2::XML_SUCCESS)
             throw std::runtime_error("File could not be loaded!");
 
-        __parse__OpenDRIVE((tinyxml2::XMLElement *) &xml_doc, "OpenDRIVE", data.OpenDRIVE);
+        // get OpenDRIVE element
+        auto od = xml_doc.FirstChildElement("OpenDRIVE");
+        if (od == nullptr)
+            throw std::runtime_error("OpenDRIVE element bot found");
+
+        // parse OpenDRIVE element
+        data.OpenDRIVE1_5.reset(new odr1_5::OpenDRIVE);
+        __parse__OpenDRIVE(od, *data.OpenDRIVE1_5);
 
     }
 

@@ -6,12 +6,14 @@
 #define OPENDRIVE_PARSER_LIB_H
 
 #include <string>
+//#include "odr1_4_structure.h"
 #include "odr1_5_structure.h"
 
 namespace odr {
 
     struct OpenDRIVEFile {
-        std::vector<std::unique_ptr<OpenDRIVE>> OpenDRIVE{};
+        std::shared_ptr<odr1_5::OpenDRIVE> OpenDRIVE1_5{};
+//        std::shared_ptr<odr1_4::OpenDRIVE> OpenDRIVE1_4{};
     };
 
     void loadFile(const std::string &filename, OpenDRIVEFile &data);

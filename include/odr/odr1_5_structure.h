@@ -1,66 +1,88 @@
-//
-// Created by Jens Klimke on 2019-04-27.
-//
+/* odr1_5_structure.h
+ * 
+ * MIT License
+ * 
+ * Copyright (c) 2019 Jens Klimke <jens.klimke@rwth-aachen.de>
+ * 
+ * Permission is hereby granted, free of charge, to any person obtaining a copy
+ *         of this software and associated documentation files (the "Software"), to deal
+ * in the Software without restriction, including without limitation the rights
+ *         to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+ *         copies of the Software, and to permit persons to whom the Software is
+ * furnished to do so, subject to the following conditions:
+ * 
+ * The above copyright notice and this permission notice shall be included in all
+ *         copies or substantial portions of the Software.
+ * 
+ * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+ * IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+ * FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+ *         AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+ * LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+ * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+ * SOFTWARE.
+ */
 
-#ifndef OPENDRIVE_PARSER_ODR1_5_STRUCTURE_H
-#define OPENDRIVE_PARSER_ODR1_5_STRUCTURE_H
+#ifndef XML_PARSER_ODR1_5_STRUCTURE_H
+#define XML_PARSER_ODR1_5_STRUCTURE_H
 
 #include "Attribute.h"
+#include <string>
 
-namespace odr {
+namespace odr1_5 {
 
-    typedef _Attribute<double> t_grEqZero;
-    typedef _Attribute<double> t_grZero;
-    typedef _Attribute<double> t_zeroOne;
-    typedef _Attribute<std::string> t_bool;
-    typedef _Attribute<std::string> t_yesNo;
-    typedef _Attribute<float> t_header_Version;
-    typedef _Attribute<std::string> e_maxSpeedString;
-    typedef _Attribute<std::string> t_junction_id;
-    typedef _Attribute<std::string> e_trafficRule;
-    typedef _Attribute<std::string> e_road_link_elementType;
-    typedef _Attribute<std::string> e_road_link_neighbor_side;
-    typedef _Attribute<std::string> e_paramPoly3_pRange;
-    typedef _Attribute<std::string> e_road_lateralProfile_crossfall_side;
-    typedef _Attribute<std::string> e_road_lanes_laneSection_lcr_lane_roadMark_laneChange;
-    typedef _Attribute<std::string> e_road_lanes_laneSection_lr_lane_access_rule;
-    typedef _Attribute<std::string> e_road_objects_object_parkingSpace_access;
-    typedef _Attribute<std::string> e_road_signals_signal_reference_elementType;
-    typedef _Attribute<std::string> e_road_surface_CRG_purpose;
-    typedef _Attribute<std::string> e_road_surface_CRG_mode;
-    typedef _Attribute<std::string> e_road_railroad_switch_position;
-    typedef _Attribute<std::string> e_junction_type;
-    typedef _Attribute<std::string> e_junctionGroup_type;
-    typedef _Attribute<std::string> e_station_type;
-    typedef _Attribute<std::string> e_station_platform_segment_side;
-    typedef _Attribute<std::string> e_dataQuality_RawData_Source;
-    typedef _Attribute<std::string> e_dataQuality_RawData_PostProcessing;
-    typedef _Attribute<std::string> e_unitDistance;
-    typedef _Attribute<std::string> e_unitSpeed;
-    typedef _Attribute<std::string> e_unitMass;
-    typedef _Attribute<std::string> e_unitSlope;
-    typedef _Attribute<std::string> e_roadType;
-    typedef _Attribute<std::string> e_roadMarkType;
-    typedef _Attribute<std::string> e_roadMarkWeight;
-    typedef _Attribute<std::string> e_roadMarkColor;
-    typedef _Attribute<std::string> e_laneType;
-    typedef _Attribute<std::string> e_objectType;
-    typedef _Attribute<std::string> e_tunnelType;
-    typedef _Attribute<std::string> e_bridgeType;
-    typedef _Attribute<std::string> e_accessRestrictionType;
-    typedef _Attribute<std::string> e_countryCode_deprecated;
-    typedef _Attribute<std::string> e_countryCode_iso3166alpha3;
-    typedef _Attribute<std::string> e_sideType;
-    typedef _Attribute<std::string> e_outlineFillType;
-    typedef _Attribute<std::string> e_borderType;
-    typedef _Attribute<std::string> e_contactPoint;
-    typedef _Attribute<std::string> e_elementDir;
-    typedef _Attribute<std::string> e_direction;
-    typedef _Attribute<std::string> e_roadMarkRule;
-    typedef _Attribute<std::string> e_orientation;
-    struct t_maxSpeed;
-    struct e_unit;
-    struct e_countryCode;
+    typedef xsd::d_double t_grEqZero;
+    typedef xsd::d_double t_grZero;
+    typedef xsd::d_double t_zeroOne;
+    typedef xsd::d_string t_bool;
+    typedef xsd::d_string t_yesNo;
+    typedef xsd::d_float t_header_Version;
+    typedef xsd::d_string e_maxSpeedString;
+    typedef xsd::d_string t_junction_id;
+    typedef xsd::d_string e_trafficRule;
+    typedef xsd::d_string e_road_link_elementType;
+    typedef xsd::d_string e_road_link_neighbor_side;
+    typedef xsd::d_string e_paramPoly3_pRange;
+    typedef xsd::d_string e_road_lateralProfile_crossfall_side;
+    typedef xsd::d_string e_road_lanes_laneSection_lcr_lane_roadMark_laneChange;
+    typedef xsd::d_string e_road_lanes_laneSection_lr_lane_access_rule;
+    typedef xsd::d_string e_road_objects_object_parkingSpace_access;
+    typedef xsd::d_string e_road_signals_signal_reference_elementType;
+    typedef xsd::d_string e_road_surface_CRG_purpose;
+    typedef xsd::d_string e_road_surface_CRG_mode;
+    typedef xsd::d_string e_road_railroad_switch_position;
+    typedef xsd::d_string e_junction_type;
+    typedef xsd::d_string e_junctionGroup_type;
+    typedef xsd::d_string e_station_type;
+    typedef xsd::d_string e_station_platform_segment_side;
+    typedef xsd::d_string e_dataQuality_RawData_Source;
+    typedef xsd::d_string e_dataQuality_RawData_PostProcessing;
+    typedef xsd::d_string e_unitDistance;
+    typedef xsd::d_string e_unitSpeed;
+    typedef xsd::d_string e_unitMass;
+    typedef xsd::d_string e_unitSlope;
+    typedef xsd::d_string e_roadType;
+    typedef xsd::d_string e_roadMarkType;
+    typedef xsd::d_string e_roadMarkWeight;
+    typedef xsd::d_string e_roadMarkColor;
+    typedef xsd::d_string e_laneType;
+    typedef xsd::d_string e_objectType;
+    typedef xsd::d_string e_tunnelType;
+    typedef xsd::d_string e_bridgeType;
+    typedef xsd::d_string e_accessRestrictionType;
+    typedef xsd::d_string e_countryCode_deprecated;
+    typedef xsd::d_string e_countryCode_iso3166alpha3;
+    typedef xsd::d_string e_sideType;
+    typedef xsd::d_string e_outlineFillType;
+    typedef xsd::d_string e_borderType;
+    typedef xsd::d_string e_contactPoint;
+    typedef xsd::d_string e_elementDir;
+    typedef xsd::d_string e_direction;
+    typedef xsd::d_string e_roadMarkRule;
+    typedef xsd::d_string e_orientation;
+    typedef xsd::d_string t_maxSpeed;
+    typedef xsd::d_string e_unit;
+    typedef xsd::d_string e_countryCode;
     struct t_header;
     struct t_header_GeoReference;
     struct t_header_Offset;
@@ -164,774 +186,764 @@ namespace odr {
     struct OpenDRIVE;
 
 
-    struct t_maxSpeed {
-        std::unique_ptr<e_maxSpeedString> _v0;
-        std::unique_ptr<t_grEqZero> _v1;
-    };
-
-    struct e_unit {
-        std::unique_ptr<e_unitDistance> _v0;
-        std::unique_ptr<e_unitSpeed> _v1;
-        std::unique_ptr<e_unitMass> _v2;
-        std::unique_ptr<e_unitSlope> _v3;
-    };
-
-    struct e_countryCode {
-        std::unique_ptr<e_countryCode_deprecated> _v0;
-        std::unique_ptr<e_countryCode_iso3166alpha3> _v1;
-    };
-
     struct t_header {
-        std::vector<std::unique_ptr<t_header_GeoReference>> _s__geoReference{};
-        std::vector<std::unique_ptr<t_header_Offset>> _s__offset{};
-        _Attribute<std::string> _f__date;
-        _Attribute<double> _f__east;
-        _Attribute<std::string> _f__name;
-        _Attribute<double> _f__north;
-        _Attribute<int> _f__revMajor;
-        _Attribute<int> _f__revMinor;
-        _Attribute<double> _f__south;
-        _Attribute<std::string> _f__vendor;
-        t_header_Version _f__version;
-        _Attribute<double> _f__west;
+        xsd::Attribute<t_header_GeoReference> sub_geoReference;
+        xsd::Attribute<t_header_Offset> sub_offset;
+        xsd::d_string _date;
+        xsd::d_double _east;
+        xsd::d_string _name;
+        xsd::d_double _north;
+        xsd::d_int _revMajor;
+        xsd::d_int _revMinor;
+        xsd::d_double _south;
+        xsd::d_string _vendor;
+        t_header_Version _version;
+        xsd::d_double _west;
     };
 
     struct t_header_GeoReference {
     };
 
     struct t_header_Offset {
-        _Attribute<float> _f__hdg;
-        _Attribute<double> _f__x;
-        _Attribute<double> _f__y;
-        _Attribute<double> _f__z;
+        xsd::d_float _hdg;
+        xsd::d_double _x;
+        xsd::d_double _y;
+        xsd::d_double _z;
     };
 
     struct t_road {
-        std::vector<std::unique_ptr<t_road_elevationProfile>> _s__elevationProfile{};
-        std::vector<std::unique_ptr<t_road_lanes>> _s__lanes{};
-        std::vector<std::unique_ptr<t_road_lateralProfile>> _s__lateralProfile{};
-        std::vector<std::unique_ptr<t_road_link>> _s__link{};
-        std::vector<std::unique_ptr<t_road_objects>> _s__objects{};
-        std::vector<std::unique_ptr<t_road_planView>> _s__planView{};
-        std::vector<std::unique_ptr<t_road_railroad>> _s__railroad{};
-        std::vector<std::unique_ptr<t_road_signals>> _s__signals{};
-        std::vector<std::unique_ptr<t_road_surface>> _s__surface{};
-        std::vector<std::unique_ptr<t_road_type>> _s__type{};
-        _Attribute<std::string> _f__id;
-        _Attribute<std::string> _f__junction;
-        t_grEqZero _f__length;
-        _Attribute<std::string> _f__name;
-        e_trafficRule _f__rule;
+        xsd::Attribute<t_road_elevationProfile> sub_elevationProfile;
+        xsd::Attribute<t_road_lanes> sub_lanes;
+        xsd::Attribute<t_road_lateralProfile> sub_lateralProfile;
+        xsd::Attribute<t_road_link> sub_link;
+        xsd::Attribute<t_road_objects> sub_objects;
+        xsd::Attribute<t_road_planView> sub_planView;
+        xsd::Attribute<t_road_railroad> sub_railroad;
+        xsd::Attribute<t_road_signals> sub_signals;
+        xsd::Attribute<t_road_surface> sub_surface;
+        xsd::Vector<t_road_type> sub_type{};
+        xsd::d_string _id;
+        xsd::d_string _junction;
+        t_grEqZero _length;
+        xsd::d_string _name;
+        e_trafficRule _rule;
     };
 
     struct t_road_link {
-        std::vector<std::unique_ptr<t_road_link_neighbor>> _s__neighbor{};
-        std::vector<std::unique_ptr<t_road_link_predecessorSuccessor>> _s__predecessor{};
-        std::vector<std::unique_ptr<t_road_link_predecessorSuccessor>> _s__successor{};
+        xsd::Attribute<t_road_link_neighbor> sub_neighbor;
+        xsd::Attribute<t_road_link_predecessorSuccessor> sub_predecessor;
+        xsd::Attribute<t_road_link_predecessorSuccessor> sub_successor;
     };
 
     struct t_road_link_predecessorSuccessor {
-        e_contactPoint _f__contactPoint;
-        e_elementDir _f__elementDir;
-        _Attribute<std::string> _f__elementId;
-        t_grEqZero _f__elementS;
-        e_road_link_elementType _f__elementType;
+        e_contactPoint _contactPoint;
+        e_elementDir _elementDir;
+        xsd::d_string _elementId;
+        t_grEqZero _elementS;
+        e_road_link_elementType _elementType;
     };
 
     struct t_road_link_neighbor {
-        e_direction _f__direction;
-        _Attribute<std::string> _f__elementId;
-        e_road_link_neighbor_side _f__side;
+        e_direction _direction;
+        xsd::d_string _elementId;
+        e_road_link_neighbor_side _side;
     };
 
     struct t_road_type {
-        std::vector<std::unique_ptr<t_road_type_speed>> _s__speed{};
-        e_countryCode _f__country;
-        t_grEqZero _f__s;
-        e_roadType _f__type;
+        xsd::Attribute<t_road_type_speed> sub_speed;
+        e_countryCode _country;
+        t_grEqZero _s;
+        e_roadType _type;
     };
 
     struct t_road_type_speed {
-        t_maxSpeed _f__max;
-        e_unitSpeed _f__unit;
+        t_maxSpeed _max;
+        e_unitSpeed _unit;
     };
 
     struct t_road_planView {
-        std::vector<std::unique_ptr<t_road_planView_geometry>> _s__geometry{};
+        xsd::Vector<t_road_planView_geometry> sub_geometry{};
     };
 
     struct t_road_planView_geometry {
-        _Attribute<double> _f__hdg;
-        t_grEqZero _f__length;
-        t_grEqZero _f__s;
-        _Attribute<double> _f__x;
-        _Attribute<double> _f__y;
+        xsd::d_double _hdg;
+        t_grEqZero _length;
+        t_grEqZero _s;
+        xsd::d_double _x;
+        xsd::d_double _y;
     };
 
     struct t_road_planView_geometry_line {
     };
 
     struct t_road_planView_geometry_spiral {
-        _Attribute<double> _f__curvEnd;
-        _Attribute<double> _f__curvStart;
+        xsd::d_double _curvEnd;
+        xsd::d_double _curvStart;
     };
 
     struct t_road_planView_geometry_arc {
-        _Attribute<double> _f__curvature;
+        xsd::d_double _curvature;
     };
 
     struct t_road_planView_geometry_poly3 {
-        _Attribute<double> _f__a;
-        _Attribute<double> _f__b;
-        _Attribute<double> _f__c;
-        _Attribute<double> _f__d;
+        xsd::d_double _a;
+        xsd::d_double _b;
+        xsd::d_double _c;
+        xsd::d_double _d;
     };
 
     struct t_road_planView_geometry_paramPoly3 {
-        _Attribute<double> _f__aU;
-        _Attribute<double> _f__aV;
-        _Attribute<double> _f__bU;
-        _Attribute<double> _f__bV;
-        _Attribute<double> _f__cU;
-        _Attribute<double> _f__cV;
-        _Attribute<double> _f__dU;
-        _Attribute<double> _f__dV;
-        e_paramPoly3_pRange _f__pRange;
+        xsd::d_double _aU;
+        xsd::d_double _aV;
+        xsd::d_double _bU;
+        xsd::d_double _bV;
+        xsd::d_double _cU;
+        xsd::d_double _cV;
+        xsd::d_double _dU;
+        xsd::d_double _dV;
+        e_paramPoly3_pRange _pRange;
     };
 
     struct t_road_elevationProfile {
-        std::vector<std::unique_ptr<t_road_elevationProfile_elevation>> _s__elevation{};
+        xsd::Vector<t_road_elevationProfile_elevation> sub_elevation{};
     };
 
     struct t_road_elevationProfile_elevation {
-        _Attribute<double> _f__a;
-        _Attribute<double> _f__b;
-        _Attribute<double> _f__c;
-        _Attribute<double> _f__d;
-        t_grEqZero _f__s;
+        xsd::d_double _a;
+        xsd::d_double _b;
+        xsd::d_double _c;
+        xsd::d_double _d;
+        t_grEqZero _s;
     };
 
     struct t_road_lateralProfile {
-        std::vector<std::unique_ptr<t_road_lateralProfile_crossfall>> _s__crossfall{};
-        std::vector<std::unique_ptr<t_road_lateralProfile_shape>> _s__shape{};
-        std::vector<std::unique_ptr<t_road_lateralProfile_superelevation>> _s__superelevation{};
+        xsd::Vector<t_road_lateralProfile_crossfall> sub_crossfall{};
+        xsd::Vector<t_road_lateralProfile_shape> sub_shape{};
+        xsd::Vector<t_road_lateralProfile_superelevation> sub_superelevation{};
     };
 
     struct t_road_lateralProfile_superelevation {
-        _Attribute<double> _f__a;
-        _Attribute<double> _f__b;
-        _Attribute<double> _f__c;
-        _Attribute<double> _f__d;
-        t_grEqZero _f__s;
+        xsd::d_double _a;
+        xsd::d_double _b;
+        xsd::d_double _c;
+        xsd::d_double _d;
+        t_grEqZero _s;
     };
 
     struct t_road_lateralProfile_crossfall {
-        _Attribute<double> _f__a;
-        _Attribute<double> _f__b;
-        _Attribute<double> _f__c;
-        _Attribute<double> _f__d;
-        t_grEqZero _f__s;
-        e_road_lateralProfile_crossfall_side _f__side;
+        xsd::d_double _a;
+        xsd::d_double _b;
+        xsd::d_double _c;
+        xsd::d_double _d;
+        t_grEqZero _s;
+        e_road_lateralProfile_crossfall_side _side;
     };
 
     struct t_road_lateralProfile_shape {
-        _Attribute<double> _f__a;
-        _Attribute<double> _f__b;
-        _Attribute<double> _f__c;
-        _Attribute<double> _f__d;
-        t_grEqZero _f__s;
-        _Attribute<double> _f__t;
+        xsd::d_double _a;
+        xsd::d_double _b;
+        xsd::d_double _c;
+        xsd::d_double _d;
+        t_grEqZero _s;
+        xsd::d_double _t;
     };
 
     struct t_road_lanes {
-        std::vector<std::unique_ptr<t_road_lanes_laneOffset>> _s__laneOffset{};
-        std::vector<std::unique_ptr<t_road_lanes_laneSection>> _s__laneSection{};
+        xsd::Vector<t_road_lanes_laneOffset> sub_laneOffset{};
+        xsd::Vector<t_road_lanes_laneSection> sub_laneSection{};
     };
 
     struct t_road_lanes_laneOffset {
-        _Attribute<double> _f__a;
-        _Attribute<double> _f__b;
-        _Attribute<double> _f__c;
-        _Attribute<double> _f__d;
-        t_grEqZero _f__s;
+        xsd::d_double _a;
+        xsd::d_double _b;
+        xsd::d_double _c;
+        xsd::d_double _d;
+        t_grEqZero _s;
     };
 
     struct t_road_lanes_laneSection {
-        std::vector<std::unique_ptr<t_road_lanes_laneSection_center>> _s__center{};
-        std::vector<std::unique_ptr<t_road_lanes_laneSection_left>> _s__left{};
-        std::vector<std::unique_ptr<t_road_lanes_laneSection_right>> _s__right{};
-        t_grEqZero _f__s;
-        t_bool _f__singleSide;
+        xsd::Attribute<t_road_lanes_laneSection_center> sub_center;
+        xsd::Attribute<t_road_lanes_laneSection_left> sub_left;
+        xsd::Attribute<t_road_lanes_laneSection_right> sub_right;
+        t_grEqZero _s;
+        t_bool _singleSide;
     };
 
     struct t_road_lanes_laneSection_left {
-        std::vector<std::unique_ptr<t_road_lanes_laneSection_left_lane>> _s__lane{};
+        xsd::Vector<t_road_lanes_laneSection_left_lane> sub_lane{};
     };
 
     struct t_road_lanes_laneSection_center {
-        std::vector<std::unique_ptr<t_road_lanes_laneSection_center_lane>> _s__lane{};
+        xsd::Vector<t_road_lanes_laneSection_center_lane> sub_lane{};
     };
 
     struct t_road_lanes_laneSection_right {
-        std::vector<std::unique_ptr<t_road_lanes_laneSection_right_lane>> _s__lane{};
+        xsd::Vector<t_road_lanes_laneSection_right_lane> sub_lane{};
     };
 
     struct t_road_lanes_laneSection_center_lane {
-        std::vector<std::unique_ptr<t_road_lanes_laneSection_lcr_lane_link>> _s__link{};
-        std::vector<std::unique_ptr<t_road_lanes_laneSection_lcr_lane_roadMark>> _s__roadMark{};
-        _Attribute<int> _f__id;
-        t_bool _f__level;
-        e_laneType _f__type;
+        xsd::Attribute<t_road_lanes_laneSection_lcr_lane_link> sub_link;
+        xsd::Vector<t_road_lanes_laneSection_lcr_lane_roadMark> sub_roadMark{};
+        xsd::d_int _id;
+        t_bool _level;
+        e_laneType _type;
     };
 
     struct t_road_lanes_laneSection_lr_lane {
-        std::vector<std::unique_ptr<t_road_lanes_laneSection_lr_lane_access>> _s__access{};
-        std::vector<std::unique_ptr<t_road_lanes_laneSection_lr_lane_height>> _s__height{};
-        std::vector<std::unique_ptr<t_road_lanes_laneSection_lcr_lane_link>> _s__link{};
-        std::vector<std::unique_ptr<t_road_lanes_laneSection_lr_lane_material>> _s__material{};
-        std::vector<std::unique_ptr<t_road_lanes_laneSection_lcr_lane_roadMark>> _s__roadMark{};
-        std::vector<std::unique_ptr<t_road_lanes_laneSection_lr_lane_rule>> _s__rule{};
-        std::vector<std::unique_ptr<t_road_lanes_laneSection_lr_lane_speed>> _s__speed{};
-        std::vector<std::unique_ptr<t_road_lanes_laneSection_lr_lane_visibility>> _s__visibility{};
-        t_bool _f__level;
-        e_laneType _f__type;
+        xsd::Vector<t_road_lanes_laneSection_lr_lane_access> sub_access{};
+        xsd::Vector<t_road_lanes_laneSection_lr_lane_border> sub_border{};
+        xsd::Vector<t_road_lanes_laneSection_lr_lane_height> sub_height{};
+        xsd::Attribute<t_road_lanes_laneSection_lcr_lane_link> sub_link;
+        xsd::Vector<t_road_lanes_laneSection_lr_lane_material> sub_material{};
+        xsd::Vector<t_road_lanes_laneSection_lcr_lane_roadMark> sub_roadMark{};
+        xsd::Vector<t_road_lanes_laneSection_lr_lane_rule> sub_rule{};
+        xsd::Vector<t_road_lanes_laneSection_lr_lane_speed> sub_speed{};
+        xsd::Vector<t_road_lanes_laneSection_lr_lane_visibility> sub_visibility{};
+        xsd::Vector<t_road_lanes_laneSection_lr_lane_width> sub_width{};
+        t_bool _level;
+        e_laneType _type;
     };
 
-    struct t_road_lanes_laneSection_left_lane {
+    struct t_road_lanes_laneSection_left_lane : public t_road_lanes_laneSection_lr_lane {
+        xsd::d_uint _id;
     };
 
-    struct t_road_lanes_laneSection_right_lane {
+    struct t_road_lanes_laneSection_right_lane : public t_road_lanes_laneSection_lr_lane {
+        xsd::d_int _id;
     };
 
     struct t_road_lanes_laneSection_lcr_lane_link {
-        std::vector<std::unique_ptr<t_road_lanes_laneSection_lcr_lane_link_predecessorSuccessor>> _s__predecessor{};
-        std::vector<std::unique_ptr<t_road_lanes_laneSection_lcr_lane_link_predecessorSuccessor>> _s__successor{};
+        xsd::Vector<t_road_lanes_laneSection_lcr_lane_link_predecessorSuccessor> sub_predecessor{};
+        xsd::Vector<t_road_lanes_laneSection_lcr_lane_link_predecessorSuccessor> sub_successor{};
     };
 
     struct t_road_lanes_laneSection_lcr_lane_link_predecessorSuccessor {
-        _Attribute<int> _f__id;
+        xsd::d_int _id;
     };
 
     struct t_road_lanes_laneSection_lr_lane_width {
-        _Attribute<double> _f__a;
-        _Attribute<double> _f__b;
-        _Attribute<double> _f__c;
-        _Attribute<double> _f__d;
-        t_grEqZero _f__sOffset;
+        xsd::d_double _a;
+        xsd::d_double _b;
+        xsd::d_double _c;
+        xsd::d_double _d;
+        t_grEqZero _sOffset;
     };
 
     struct t_road_lanes_laneSection_lr_lane_border {
-        _Attribute<double> _f__a;
-        _Attribute<double> _f__b;
-        _Attribute<double> _f__c;
-        _Attribute<double> _f__d;
-        t_grEqZero _f__sOffset;
+        xsd::d_double _a;
+        xsd::d_double _b;
+        xsd::d_double _c;
+        xsd::d_double _d;
+        t_grEqZero _sOffset;
     };
 
     struct t_road_lanes_laneSection_lcr_lane_roadMark {
-        std::vector<std::unique_ptr<t_road_lanes_laneSection_lcr_lane_roadMark_explicit>> _s__explicit{};
-        std::vector<std::unique_ptr<t_road_lanes_laneSection_lcr_lane_roadMark_sway>> _s__sway{};
-        std::vector<std::unique_ptr<t_road_lanes_laneSection_lcr_lane_roadMark_type>> _s__type{};
-        e_roadMarkColor _f__color;
-        _Attribute<double> _f__height;
-        e_road_lanes_laneSection_lcr_lane_roadMark_laneChange _f__laneChange;
-        _Attribute<std::string> _f__material;
-        t_grEqZero _f__sOffset;
-        e_roadMarkType _f__type;
-        e_roadMarkWeight _f__weight;
-        t_grEqZero _f__width;
+        xsd::Attribute<t_road_lanes_laneSection_lcr_lane_roadMark_explicit> sub_explicit;
+        xsd::Vector<t_road_lanes_laneSection_lcr_lane_roadMark_sway> sub_sway{};
+        xsd::Attribute<t_road_lanes_laneSection_lcr_lane_roadMark_type> sub_type;
+        e_roadMarkColor _color;
+        xsd::d_double _height;
+        e_road_lanes_laneSection_lcr_lane_roadMark_laneChange _laneChange;
+        xsd::d_string _material;
+        t_grEqZero _sOffset;
+        e_roadMarkType _type;
+        e_roadMarkWeight _weight;
+        t_grEqZero _width;
     };
 
     struct t_road_lanes_laneSection_lcr_lane_roadMark_sway {
-        _Attribute<double> _f__a;
-        _Attribute<double> _f__b;
-        _Attribute<double> _f__c;
-        _Attribute<double> _f__d;
-        t_grEqZero _f__ds;
+        xsd::d_double _a;
+        xsd::d_double _b;
+        xsd::d_double _c;
+        xsd::d_double _d;
+        t_grEqZero _ds;
     };
 
     struct t_road_lanes_laneSection_lcr_lane_roadMark_type {
-        std::vector<std::unique_ptr<t_road_lanes_laneSection_lcr_lane_roadMark_type_line>> _s__line{};
-        _Attribute<std::string> _f__name;
-        t_grEqZero _f__width;
+        xsd::Vector<t_road_lanes_laneSection_lcr_lane_roadMark_type_line> sub_line{};
+        xsd::d_string _name;
+        t_grEqZero _width;
     };
 
     struct t_road_lanes_laneSection_lcr_lane_roadMark_type_line {
-        e_roadMarkColor _f__color;
-        t_grEqZero _f__length;
-        e_roadMarkRule _f__rule;
-        t_grEqZero _f__sOffset;
-        t_grEqZero _f__space;
-        _Attribute<double> _f__tOffset;
-        t_grEqZero _f__width;
+        e_roadMarkColor _color;
+        t_grEqZero _length;
+        e_roadMarkRule _rule;
+        t_grEqZero _sOffset;
+        t_grEqZero _space;
+        xsd::d_double _tOffset;
+        t_grEqZero _width;
     };
 
     struct t_road_lanes_laneSection_lcr_lane_roadMark_explicit {
-        std::vector<std::unique_ptr<t_road_lanes_laneSection_lcr_lane_roadMark_explicit_line>> _s__line{};
+        xsd::Vector<t_road_lanes_laneSection_lcr_lane_roadMark_explicit_line> sub_line{};
     };
 
     struct t_road_lanes_laneSection_lcr_lane_roadMark_explicit_line {
-        t_grEqZero _f__length;
-        e_roadMarkRule _f__rule;
-        t_grEqZero _f__sOffset;
-        _Attribute<double> _f__tOffset;
-        t_grEqZero _f__width;
+        t_grEqZero _length;
+        e_roadMarkRule _rule;
+        t_grEqZero _sOffset;
+        xsd::d_double _tOffset;
+        t_grEqZero _width;
     };
 
     struct t_road_lanes_laneSection_lr_lane_material {
-        t_grEqZero _f__friction;
-        t_grEqZero _f__roughness;
-        t_grEqZero _f__sOffset;
-        _Attribute<std::string> _f__surface;
+        t_grEqZero _friction;
+        t_grEqZero _roughness;
+        t_grEqZero _sOffset;
+        xsd::d_string _surface;
     };
 
     struct t_road_lanes_laneSection_lr_lane_visibility {
-        t_grEqZero _f__back;
-        t_grEqZero _f__forward;
-        t_grEqZero _f__left;
-        t_grEqZero _f__right;
-        t_grEqZero _f__sOffset;
+        t_grEqZero _back;
+        t_grEqZero _forward;
+        t_grEqZero _left;
+        t_grEqZero _right;
+        t_grEqZero _sOffset;
     };
 
     struct t_road_lanes_laneSection_lr_lane_speed {
-        t_grEqZero _f__max;
-        t_grEqZero _f__sOffset;
-        e_unitSpeed _f__unit;
+        t_grEqZero _max;
+        t_grEqZero _sOffset;
+        e_unitSpeed _unit;
     };
 
     struct t_road_lanes_laneSection_lr_lane_access {
-        e_accessRestrictionType _f__restriction;
-        e_road_lanes_laneSection_lr_lane_access_rule _f__rule;
-        t_grEqZero _f__sOffset;
+        e_accessRestrictionType _restriction;
+        e_road_lanes_laneSection_lr_lane_access_rule _rule;
+        t_grEqZero _sOffset;
     };
 
     struct t_road_lanes_laneSection_lr_lane_height {
-        _Attribute<double> _f__inner;
-        _Attribute<double> _f__outer;
-        t_grEqZero _f__sOffset;
+        xsd::d_double _inner;
+        xsd::d_double _outer;
+        t_grEqZero _sOffset;
     };
 
     struct t_road_lanes_laneSection_lr_lane_rule {
-        t_grEqZero _f__sOffset;
-        _Attribute<std::string> _f__value;
+        t_grEqZero _sOffset;
+        xsd::d_string _value;
     };
 
     struct t_road_objects {
-        std::vector<std::unique_ptr<t_road_objects_bridge>> _s__bridge{};
-        std::vector<std::unique_ptr<t_road_objects_object>> _s__object{};
-        std::vector<std::unique_ptr<t_road_objects_objectReference>> _s__objectReference{};
-        std::vector<std::unique_ptr<t_road_objects_tunnel>> _s__tunnel{};
+        xsd::Vector<t_road_objects_bridge> sub_bridge{};
+        xsd::Vector<t_road_objects_object> sub_object{};
+        xsd::Vector<t_road_objects_objectReference> sub_objectReference{};
+        xsd::Vector<t_road_objects_tunnel> sub_tunnel{};
     };
 
     struct t_road_objects_object {
-        std::vector<std::unique_ptr<t_road_objects_object_borders>> _s__borders{};
-        std::vector<std::unique_ptr<t_road_objects_object_markings>> _s__markings{};
-        std::vector<std::unique_ptr<t_road_objects_object_material>> _s__material{};
-        std::vector<std::unique_ptr<t_road_objects_object_outlines_outline>> _s__outline{};
-        std::vector<std::unique_ptr<t_road_objects_object_outlines>> _s__outlines{};
-        std::vector<std::unique_ptr<t_road_objects_object_parkingSpace>> _s__parkingSpace{};
-        std::vector<std::unique_ptr<t_road_objects_object_repeat>> _s__repeat{};
-        std::vector<std::unique_ptr<t_road_objects_object_laneValidity>> _s__validity{};
-        t_yesNo _f__dynamic;
-        _Attribute<double> _f__hdg;
-        _Attribute<double> _f__height;
-        _Attribute<std::string> _f__id;
-        _Attribute<double> _f__length;
-        _Attribute<std::string> _f__name;
-        e_orientation _f__orientation;
-        _Attribute<double> _f__pitch;
-        _Attribute<double> _f__radius;
-        _Attribute<double> _f__roll;
-        t_grEqZero _f__s;
-        _Attribute<std::string> _f__subtype;
-        _Attribute<double> _f__t;
-        e_objectType _f__type;
-        t_grEqZero _f__validLength;
-        _Attribute<double> _f__width;
-        _Attribute<double> _f__zOffset;
+        xsd::Attribute<t_road_objects_object_borders> sub_borders;
+        xsd::Attribute<t_road_objects_object_markings> sub_markings;
+        xsd::Vector<t_road_objects_object_material> sub_material{};
+        xsd::Attribute<t_road_objects_object_outlines_outline> sub_outline;
+        xsd::Attribute<t_road_objects_object_outlines> sub_outlines;
+        xsd::Attribute<t_road_objects_object_parkingSpace> sub_parkingSpace;
+        xsd::Attribute<t_road_objects_object_repeat> sub_repeat;
+        xsd::Vector<t_road_objects_object_laneValidity> sub_validity{};
+        t_yesNo _dynamic;
+        xsd::d_double _hdg;
+        xsd::d_double _height;
+        xsd::d_string _id;
+        xsd::d_double _length;
+        xsd::d_string _name;
+        e_orientation _orientation;
+        xsd::d_double _pitch;
+        xsd::d_double _radius;
+        xsd::d_double _roll;
+        t_grEqZero _s;
+        xsd::d_string _subtype;
+        xsd::d_double _t;
+        e_objectType _type;
+        t_grEqZero _validLength;
+        xsd::d_double _width;
+        xsd::d_double _zOffset;
     };
 
     struct t_road_objects_object_repeat {
-        t_grEqZero _f__distance;
-        _Attribute<double> _f__heightEnd;
-        _Attribute<double> _f__heightStart;
-        t_grEqZero _f__length;
-        t_grEqZero _f__lengthEnd;
-        t_grEqZero _f__lengthStart;
-        t_grEqZero _f__radiusEnd;
-        t_grEqZero _f__radiusStart;
-        t_grEqZero _f__s;
-        _Attribute<double> _f__tEnd;
-        _Attribute<double> _f__tStart;
-        t_grEqZero _f__widthEnd;
-        t_grEqZero _f__widthStart;
-        _Attribute<double> _f__zOffsetEnd;
-        _Attribute<double> _f__zOffsetStart;
+        t_grEqZero _distance;
+        xsd::d_double _heightEnd;
+        xsd::d_double _heightStart;
+        t_grEqZero _length;
+        t_grEqZero _lengthEnd;
+        t_grEqZero _lengthStart;
+        t_grEqZero _radiusEnd;
+        t_grEqZero _radiusStart;
+        t_grEqZero _s;
+        xsd::d_double _tEnd;
+        xsd::d_double _tStart;
+        t_grEqZero _widthEnd;
+        t_grEqZero _widthStart;
+        xsd::d_double _zOffsetEnd;
+        xsd::d_double _zOffsetStart;
     };
 
     struct t_road_objects_object_outlines {
-        std::vector<std::unique_ptr<t_road_objects_object_outlines_outline>> _s__outline{};
+        xsd::Vector<t_road_objects_object_outlines_outline> sub_outline{};
     };
 
     struct t_road_objects_object_outlines_outline {
-        std::vector<std::unique_ptr<t_road_objects_object_outlines_outline_cornerLocal>> _s__cornerLocal{};
-        std::vector<std::unique_ptr<t_road_objects_object_outlines_outline_cornerRoad>> _s__cornerRoad{};
-        t_bool _f__closed;
-        e_outlineFillType _f__fillType;
-        _Attribute<unsigned int> _f__id;
-        e_laneType _f__laneType;
-        t_bool _f__outer;
+        xsd::Vector<t_road_objects_object_outlines_outline_cornerLocal> sub_cornerLocal{};
+        xsd::Vector<t_road_objects_object_outlines_outline_cornerRoad> sub_cornerRoad{};
+        t_bool _closed;
+        e_outlineFillType _fillType;
+        xsd::d_uint _id;
+        e_laneType _laneType;
+        t_bool _outer;
     };
 
     struct t_road_objects_object_outlines_outline_cornerRoad {
-        _Attribute<double> _f__dz;
-        _Attribute<double> _f__height;
-        _Attribute<unsigned int> _f__id;
-        t_grEqZero _f__s;
-        _Attribute<double> _f__t;
+        xsd::d_double _dz;
+        xsd::d_double _height;
+        xsd::d_uint _id;
+        t_grEqZero _s;
+        xsd::d_double _t;
     };
 
     struct t_road_objects_object_outlines_outline_cornerLocal {
-        _Attribute<double> _f__height;
-        _Attribute<unsigned int> _f__id;
-        _Attribute<double> _f__u;
-        _Attribute<double> _f__v;
-        _Attribute<double> _f__z;
+        xsd::d_double _height;
+        xsd::d_uint _id;
+        xsd::d_double _u;
+        xsd::d_double _v;
+        xsd::d_double _z;
     };
 
     struct t_road_objects_object_material {
-        t_grEqZero _f__friction;
-        t_grEqZero _f__roughness;
-        _Attribute<std::string> _f__surface;
+        t_grEqZero _friction;
+        t_grEqZero _roughness;
+        xsd::d_string _surface;
     };
 
     struct t_road_objects_object_laneValidity {
-        _Attribute<int> _f__fromLane;
-        _Attribute<int> _f__toLane;
+        xsd::d_int _fromLane;
+        xsd::d_int _toLane;
     };
 
     struct t_road_objects_object_parkingSpace {
-        e_road_objects_object_parkingSpace_access _f__access;
-        _Attribute<std::string> _f__restrictions;
+        e_road_objects_object_parkingSpace_access _access;
+        xsd::d_string _restrictions;
     };
 
     struct t_road_objects_object_markings {
-        std::vector<std::unique_ptr<t_road_objects_object_markings_marking>> _s__marking{};
+        xsd::Vector<t_road_objects_object_markings_marking> sub_marking{};
     };
 
     struct t_road_objects_object_markings_marking {
-        std::vector<std::unique_ptr<t_road_objects_object_markings_marking_cornerReference>> _s__cornerReference{};
-        e_roadMarkColor _f__color;
-        t_grEqZero _f__lineLength;
-        e_sideType _f__side;
-        t_grEqZero _f__spaceLength;
-        _Attribute<double> _f__startOffset;
-        _Attribute<double> _f__stopOffset;
-        e_roadMarkWeight _f__weight;
-        t_grEqZero _f__width;
-        t_grEqZero _f__zOffset;
+        xsd::Vector<t_road_objects_object_markings_marking_cornerReference> sub_cornerReference{};
+        e_roadMarkColor _color;
+        t_grEqZero _lineLength;
+        e_sideType _side;
+        t_grEqZero _spaceLength;
+        xsd::d_double _startOffset;
+        xsd::d_double _stopOffset;
+        e_roadMarkWeight _weight;
+        t_grEqZero _width;
+        t_grEqZero _zOffset;
     };
 
     struct t_road_objects_object_markings_marking_cornerReference {
-        _Attribute<unsigned int> _f__id;
+        xsd::d_uint _id;
     };
 
     struct t_road_objects_object_borders {
-        std::vector<std::unique_ptr<t_road_objects_object_borders_border>> _s__border{};
+        xsd::Vector<t_road_objects_object_borders_border> sub_border{};
     };
 
     struct t_road_objects_object_borders_border {
-        std::vector<std::unique_ptr<t_road_objects_object_markings_marking_cornerReference>> _s__cornerReference{};
-        _Attribute<unsigned int> _f__outlineId;
-        e_borderType _f__type;
-        t_bool _f__useCompleteOutline;
-        t_grEqZero _f__width;
+        xsd::Vector<t_road_objects_object_markings_marking_cornerReference> sub_cornerReference{};
+        xsd::d_uint _outlineId;
+        e_borderType _type;
+        t_bool _useCompleteOutline;
+        t_grEqZero _width;
     };
 
     struct t_road_objects_objectReference {
-        std::vector<std::unique_ptr<t_road_objects_object_laneValidity>> _s__validity{};
-        _Attribute<std::string> _f__id;
-        e_orientation _f__orientation;
-        t_grEqZero _f__s;
-        _Attribute<double> _f__t;
-        t_grEqZero _f__validLength;
-        _Attribute<double> _f__zOffset;
+        xsd::Vector<t_road_objects_object_laneValidity> sub_validity{};
+        xsd::d_string _id;
+        e_orientation _orientation;
+        t_grEqZero _s;
+        xsd::d_double _t;
+        t_grEqZero _validLength;
+        xsd::d_double _zOffset;
     };
 
     struct t_road_objects_tunnel {
-        std::vector<std::unique_ptr<t_road_objects_object_laneValidity>> _s__validity{};
-        t_zeroOne _f__daylight;
-        _Attribute<std::string> _f__id;
-        t_grEqZero _f__length;
-        t_zeroOne _f__lighting;
-        _Attribute<std::string> _f__name;
-        t_grEqZero _f__s;
-        e_tunnelType _f__type;
+        xsd::Vector<t_road_objects_object_laneValidity> sub_validity{};
+        t_zeroOne _daylight;
+        xsd::d_string _id;
+        t_grEqZero _length;
+        t_zeroOne _lighting;
+        xsd::d_string _name;
+        t_grEqZero _s;
+        e_tunnelType _type;
     };
 
     struct t_road_objects_bridge {
-        std::vector<std::unique_ptr<t_road_objects_object_laneValidity>> _s__validity{};
-        _Attribute<std::string> _f__id;
-        t_grEqZero _f__length;
-        _Attribute<std::string> _f__name;
-        t_grEqZero _f__s;
-        e_bridgeType _f__type;
+        xsd::Vector<t_road_objects_object_laneValidity> sub_validity{};
+        xsd::d_string _id;
+        t_grEqZero _length;
+        xsd::d_string _name;
+        t_grEqZero _s;
+        e_bridgeType _type;
     };
 
     struct t_road_signals {
-        std::vector<std::unique_ptr<t_road_signals_signal>> _s__signal{};
-        std::vector<std::unique_ptr<t_road_signals_signalReference>> _s__signalReference{};
+        xsd::Vector<t_road_signals_signal> sub_signal{};
+        xsd::Vector<t_road_signals_signalReference> sub_signalReference{};
     };
 
     struct t_road_signals_signal {
-        std::vector<std::unique_ptr<t_road_signals_signal_dependency>> _s__dependency{};
-        std::vector<std::unique_ptr<t_road_signals_signal_reference>> _s__reference{};
-        std::vector<std::unique_ptr<t_road_objects_object_laneValidity>> _s__validity{};
-        e_countryCode _f__country;
-        _Attribute<std::string> _f__countryRevision;
-        t_yesNo _f__dynamic;
-        _Attribute<double> _f__hOffset;
-        t_grEqZero _f__height;
-        _Attribute<std::string> _f__id;
-        _Attribute<std::string> _f__name;
-        e_orientation _f__orientation;
-        _Attribute<double> _f__pitch;
-        _Attribute<double> _f__roll;
-        t_grEqZero _f__s;
-        _Attribute<std::string> _f__subtype;
-        _Attribute<double> _f__t;
-        _Attribute<std::string> _f__text;
-        _Attribute<std::string> _f__type;
-        e_unit _f__unit;
-        _Attribute<double> _f__value;
-        t_grEqZero _f__width;
-        _Attribute<double> _f__zOffset;
+        xsd::Vector<t_road_signals_signal_dependency> sub_dependency{};
+        xsd::Vector<t_road_signals_signal_positionInertial> sub_positionInertial{};
+        xsd::Vector<t_road_signals_signal_positionRoad> sub_positionRoad{};
+        xsd::Vector<t_road_signals_signal_reference> sub_reference{};
+        xsd::Vector<t_road_objects_object_laneValidity> sub_validity{};
+        e_countryCode _country;
+        xsd::d_string _countryRevision;
+        t_yesNo _dynamic;
+        xsd::d_double _hOffset;
+        t_grEqZero _height;
+        xsd::d_string _id;
+        xsd::d_string _name;
+        e_orientation _orientation;
+        xsd::d_double _pitch;
+        xsd::d_double _roll;
+        t_grEqZero _s;
+        xsd::d_string _subtype;
+        xsd::d_double _t;
+        xsd::d_string _text;
+        xsd::d_string _type;
+        e_unit _unit;
+        xsd::d_double _value;
+        t_grEqZero _width;
+        xsd::d_double _zOffset;
     };
 
     struct t_road_signals_signal_dependency {
-        _Attribute<std::string> _f__id;
-        _Attribute<std::string> _f__type;
+        xsd::d_string _id;
+        xsd::d_string _type;
     };
 
     struct t_road_signals_signal_reference {
-        _Attribute<std::string> _f__elementId;
-        e_road_signals_signal_reference_elementType _f__elementType;
-        _Attribute<std::string> _f__type;
+        xsd::d_string _elementId;
+        e_road_signals_signal_reference_elementType _elementType;
+        xsd::d_string _type;
     };
 
     struct t_road_signals_signal_positionRoad {
-        _Attribute<double> _f__hOffset;
-        _Attribute<double> _f__pitch;
-        _Attribute<std::string> _f__roadId;
-        _Attribute<double> _f__roll;
-        t_grEqZero _f__s;
-        _Attribute<double> _f__t;
-        _Attribute<double> _f__zOffset;
+        xsd::d_double _hOffset;
+        xsd::d_double _pitch;
+        xsd::d_string _roadId;
+        xsd::d_double _roll;
+        t_grEqZero _s;
+        xsd::d_double _t;
+        xsd::d_double _zOffset;
     };
 
     struct t_road_signals_signal_positionInertial {
-        _Attribute<double> _f__hdg;
-        _Attribute<double> _f__pitch;
-        _Attribute<double> _f__roll;
-        _Attribute<double> _f__x;
-        _Attribute<double> _f__y;
-        _Attribute<double> _f__z;
+        xsd::d_double _hdg;
+        xsd::d_double _pitch;
+        xsd::d_double _roll;
+        xsd::d_double _x;
+        xsd::d_double _y;
+        xsd::d_double _z;
     };
 
     struct t_road_signals_signalReference {
-        std::vector<std::unique_ptr<t_road_objects_object_laneValidity>> _s__validity{};
-        _Attribute<std::string> _f__id;
-        e_orientation _f__orientation;
-        t_grEqZero _f__s;
-        _Attribute<double> _f__t;
+        xsd::Vector<t_road_objects_object_laneValidity> sub_validity{};
+        xsd::d_string _id;
+        e_orientation _orientation;
+        t_grEqZero _s;
+        xsd::d_double _t;
     };
 
     struct t_road_surface {
-        std::vector<std::unique_ptr<t_road_surface_CRG>> _s__CRG{};
+        xsd::Vector<t_road_surface_CRG> sub_CRG{};
     };
 
     struct t_road_surface_CRG {
-        _Attribute<std::string> _f__file;
-        _Attribute<double> _f__hOffset;
-        e_road_surface_CRG_mode _f__mode;
-        e_direction _f__orientation;
-        e_road_surface_CRG_purpose _f__purpose;
-        t_grEqZero _f__sEnd;
-        _Attribute<double> _f__sOffset;
-        t_grEqZero _f__sStart;
-        _Attribute<double> _f__tOffset;
-        _Attribute<double> _f__zOffset;
-        _Attribute<double> _f__zScale;
+        xsd::d_string _file;
+        xsd::d_double _hOffset;
+        e_road_surface_CRG_mode _mode;
+        e_direction _orientation;
+        e_road_surface_CRG_purpose _purpose;
+        t_grEqZero _sEnd;
+        xsd::d_double _sOffset;
+        t_grEqZero _sStart;
+        xsd::d_double _tOffset;
+        xsd::d_double _zOffset;
+        xsd::d_double _zScale;
     };
 
     struct t_road_railroad {
-        std::vector<std::unique_ptr<t_road_railroad_switch>> _s__switch{};
+        xsd::Vector<t_road_railroad_switch> sub_switch{};
     };
 
     struct t_road_railroad_switch {
-        std::vector<std::unique_ptr<t_road_railroad_switch_mainTrack>> _s__mainTrack{};
-        std::vector<std::unique_ptr<t_road_railroad_switch_partner>> _s__partner{};
-        std::vector<std::unique_ptr<t_road_railroad_switch_sideTrack>> _s__sideTrack{};
-        _Attribute<std::string> _f__id;
-        _Attribute<std::string> _f__name;
-        e_road_railroad_switch_position _f__position;
+        xsd::Attribute<t_road_railroad_switch_mainTrack> sub_mainTrack;
+        xsd::Attribute<t_road_railroad_switch_partner> sub_partner;
+        xsd::Attribute<t_road_railroad_switch_sideTrack> sub_sideTrack;
+        xsd::d_string _id;
+        xsd::d_string _name;
+        e_road_railroad_switch_position _position;
     };
 
     struct t_road_railroad_switch_mainTrack {
-        e_elementDir _f__dir;
-        _Attribute<std::string> _f__id;
-        t_grEqZero _f__s;
+        e_elementDir _dir;
+        xsd::d_string _id;
+        t_grEqZero _s;
     };
 
     struct t_road_railroad_switch_sideTrack {
-        e_elementDir _f__dir;
-        _Attribute<std::string> _f__id;
-        t_grEqZero _f__s;
+        e_elementDir _dir;
+        xsd::d_string _id;
+        t_grEqZero _s;
     };
 
     struct t_road_railroad_switch_partner {
-        _Attribute<std::string> _f__id;
-        _Attribute<std::string> _f__name;
+        xsd::d_string _id;
+        xsd::d_string _name;
     };
 
     struct t_controller {
-        std::vector<std::unique_ptr<t_controller_control>> _s__control{};
-        _Attribute<std::string> _f__id;
-        _Attribute<std::string> _f__name;
-        _Attribute<unsigned int> _f__sequence;
+        xsd::Vector<t_controller_control> sub_control{};
+        xsd::d_string _id;
+        xsd::d_string _name;
+        xsd::d_uint _sequence;
     };
 
     struct t_controller_control {
-        _Attribute<std::string> _f__signalId;
-        _Attribute<std::string> _f__type;
+        xsd::d_string _signalId;
+        xsd::d_string _type;
     };
 
     struct t_junction {
-        std::vector<std::unique_ptr<t_junction_connection>> _s__connection{};
-        std::vector<std::unique_ptr<t_junction_controller>> _s__controller{};
-        std::vector<std::unique_ptr<t_junction_priority>> _s__priority{};
-        std::vector<std::unique_ptr<t_junction_surface>> _s__surface{};
-        t_junction_id _f__id;
-        _Attribute<std::string> _f__name;
-        e_junction_type _f__type;
+        xsd::Vector<t_junction_connection> sub_connection{};
+        xsd::Vector<t_junction_controller> sub_controller{};
+        xsd::Vector<t_junction_priority> sub_priority{};
+        xsd::Attribute<t_junction_surface> sub_surface;
+        t_junction_id _id;
+        xsd::d_string _name;
+        e_junction_type _type;
     };
 
     struct t_junction_connection {
-        std::vector<std::unique_ptr<t_junction_connection_laneLink>> _s__laneLink{};
-        std::vector<std::unique_ptr<t_junction_predecessorSuccessor>> _s__predecessor{};
-        std::vector<std::unique_ptr<t_junction_predecessorSuccessor>> _s__successor{};
-        _Attribute<std::string> _f__connectingRoad;
-        _Attribute<std::string> _f__connectionMaster;
-        e_contactPoint _f__contactPoint;
-        _Attribute<std::string> _f__id;
-        _Attribute<std::string> _f__incomingRoad;
-        e_junction_type _f__type;
+        xsd::Vector<t_junction_connection_laneLink> sub_laneLink{};
+        xsd::Attribute<t_junction_predecessorSuccessor> sub_predecessor;
+        xsd::Attribute<t_junction_predecessorSuccessor> sub_successor;
+        xsd::d_string _connectingRoad;
+        xsd::d_string _connectionMaster;
+        e_contactPoint _contactPoint;
+        xsd::d_string _id;
+        xsd::d_string _incomingRoad;
+        e_junction_type _type;
     };
 
     struct t_junction_predecessorSuccessor {
-        e_elementDir _f__elementDir;
-        _Attribute<std::string> _f__elementId;
-        t_grZero _f__elementS;
-        _Attribute<std::string> _f__elementType;
+        e_elementDir _elementDir;
+        xsd::d_string _elementId;
+        t_grZero _elementS;
+        xsd::d_string _elementType;
     };
 
     struct t_junction_connection_laneLink {
-        _Attribute<int> _f__from;
-        _Attribute<int> _f__to;
+        xsd::d_int _from;
+        xsd::d_int _to;
     };
 
     struct t_junction_priority {
-        _Attribute<std::string> _f__high;
-        _Attribute<std::string> _f__low;
+        xsd::d_string _high;
+        xsd::d_string _low;
     };
 
     struct t_junction_controller {
-        _Attribute<std::string> _f__id;
-        _Attribute<unsigned int> _f__sequence;
-        _Attribute<std::string> _f__type;
+        xsd::d_string _id;
+        xsd::d_uint _sequence;
+        xsd::d_string _type;
     };
 
     struct t_junction_surface {
-        std::vector<std::unique_ptr<t_junction_surface_CRG>> _s__CRG{};
+        xsd::Vector<t_junction_surface_CRG> sub_CRG{};
     };
 
     struct t_junction_surface_CRG {
-        _Attribute<std::string> _f__file;
-        e_road_surface_CRG_mode _f__mode;
-        e_road_surface_CRG_purpose _f__purpose;
-        _Attribute<double> _f__zOffset;
-        _Attribute<double> _f__zScale;
+        xsd::d_string _file;
+        e_road_surface_CRG_mode _mode;
+        e_road_surface_CRG_purpose _purpose;
+        xsd::d_double _zOffset;
+        xsd::d_double _zScale;
     };
 
     struct t_junctionGroup {
-        std::vector<std::unique_ptr<t_junctionGroup_junctionReference>> _s__junctionReference{};
-        _Attribute<std::string> _f__id;
-        _Attribute<std::string> _f__name;
-        e_junctionGroup_type _f__type;
+        xsd::Vector<t_junctionGroup_junctionReference> sub_junctionReference{};
+        xsd::d_string _id;
+        xsd::d_string _name;
+        e_junctionGroup_type _type;
     };
 
     struct t_junctionGroup_junctionReference {
-        _Attribute<std::string> _f__junction;
+        xsd::d_string _junction;
     };
 
     struct t_station {
-        std::vector<std::unique_ptr<t_station_platform>> _s__platform{};
-        _Attribute<std::string> _f__id;
-        _Attribute<std::string> _f__name;
-        e_station_type _f__type;
+        xsd::Vector<t_station_platform> sub_platform{};
+        xsd::d_string _id;
+        xsd::d_string _name;
+        e_station_type _type;
     };
 
     struct t_station_platform {
-        std::vector<std::unique_ptr<t_station_platform_segment>> _s__segment{};
-        _Attribute<std::string> _f__id;
-        _Attribute<std::string> _f__name;
+        xsd::Vector<t_station_platform_segment> sub_segment{};
+        xsd::d_string _id;
+        xsd::d_string _name;
     };
 
     struct t_station_platform_segment {
-        _Attribute<std::string> _f__roadId;
-        t_grEqZero _f__sEnd;
-        t_grEqZero _f__sStart;
-        e_station_platform_segment_side _f__side;
+        xsd::d_string _roadId;
+        t_grEqZero _sEnd;
+        t_grEqZero _sStart;
+        e_station_platform_segment_side _side;
     };
 
     struct t_userData {
-        _Attribute<std::string> _f__code;
-        _Attribute<std::string> _f__value;
+        xsd::d_string _code;
+        xsd::d_string _value;
     };
 
     struct t_include {
-        _Attribute<std::string> _f__file;
+        xsd::d_string _file;
     };
 
     struct t_dataQuality {
-        std::vector<std::unique_ptr<t_dataQuality_Error>> _s__error{};
-        std::vector<std::unique_ptr<t_dataQuality_RawData>> _s__rawData{};
+        xsd::Attribute<t_dataQuality_Error> sub_error;
+        xsd::Attribute<t_dataQuality_RawData> sub_rawData;
     };
 
     struct t_dataQuality_Error {
-        _Attribute<double> _f__xyAbsolute;
-        _Attribute<double> _f__xyRelative;
-        _Attribute<double> _f__zAbsolute;
-        _Attribute<double> _f__zRelative;
+        xsd::d_double _xyAbsolute;
+        xsd::d_double _xyRelative;
+        xsd::d_double _zAbsolute;
+        xsd::d_double _zRelative;
     };
 
     struct t_dataQuality_RawData {
-        _Attribute<std::string> _f__date;
-        e_dataQuality_RawData_PostProcessing _f__postProcessing;
-        _Attribute<std::string> _f__postProcessingComment;
-        e_dataQuality_RawData_Source _f__source;
-        _Attribute<std::string> _f__sourceComment;
+        xsd::d_string _date;
+        e_dataQuality_RawData_PostProcessing _postProcessing;
+        xsd::d_string _postProcessingComment;
+        e_dataQuality_RawData_Source _source;
+        xsd::d_string _sourceComment;
     };
 
     struct OpenDRIVE {
-        std::vector<std::unique_ptr<t_controller>> _s__controller{};
-        std::vector<std::unique_ptr<t_header>> _s__header{};
-        std::vector<std::unique_ptr<t_junction>> _s__junction{};
-        std::vector<std::unique_ptr<t_junctionGroup>> _s__junctionGroup{};
-        std::vector<std::unique_ptr<t_road>> _s__road{};
-        std::vector<std::unique_ptr<t_station>> _s__station{};
+        xsd::Vector<t_controller> sub_controller{};
+        xsd::Attribute<t_header> sub_header;
+        xsd::Vector<t_junction> sub_junction{};
+        xsd::Vector<t_junctionGroup> sub_junctionGroup{};
+        xsd::Vector<t_road> sub_road{};
+        xsd::Vector<t_station> sub_station{};
     };
 
-}
 
-#endif //OPENDRIVE_PARSER_ODR1_5_STRUCTURE_H
+} // namespace odr1_5
+
+#endif // XML_PARSER_ODR1_5_STRUCTURE_H
