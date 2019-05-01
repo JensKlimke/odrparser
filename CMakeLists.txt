@@ -19,12 +19,23 @@ endif ()
 set(CMAKE_MODULE_PATH "${PROJECT_SOURCE_DIR}/cmake" ${CMAKE_MODULE_PATH})
 
 
-### GTEST
-enable_testing()
-
 
 add_subdirectory(src)
-add_subdirectory(tests)
+
+
+# first check
+if(NOT DEFINED ${ODRLIB_ENABLE_TESTING})
+    set(ODRLIB_ENABLE_TESTING true)
+endif(NOT DEFINED ${ODRLIB_ENABLE_TESTING})
+
+
+### GTEST
+if(ODRLIB_ENABLE_TESTING)
+
+    enable_testing()
+    add_subdirectory(tests)
+
+endif ()
 
 add_executable(${PROJECT_NAME} apps/main.cpp)
 target_link_libraries(${PROJECT_NAME} two)
