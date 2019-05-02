@@ -17,7 +17,7 @@ endif ()
 
 # add ./cmake to CMAKE_MODULE_PATH
 set(CMAKE_MODULE_PATH "${PROJECT_SOURCE_DIR}/cmake" ${CMAKE_MODULE_PATH})
-
+set(ODRPARSER_LIB_DIR ${CMAKE_CURRENT_SOURCE_DIR})
 
 
 add_subdirectory(src)
@@ -36,6 +36,3 @@ if(ODRLIB_ENABLE_TESTING)
     add_subdirectory(tests)
 
 endif ()
-
-add_executable(${PROJECT_NAME} apps/main.cpp)
-target_link_libraries(${PROJECT_NAME} two)
