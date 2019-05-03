@@ -266,6 +266,11 @@ namespace odr1_5 {
     };
 
     struct t_road_planView_geometry {
+        xsd::Attribute<t_road_planView_geometry_arc> sub_arc;
+        xsd::Attribute<t_road_planView_geometry_line> sub_line;
+        xsd::Attribute<t_road_planView_geometry_paramPoly3> sub_paramPoly3;
+        xsd::Attribute<t_road_planView_geometry_poly3> sub_poly3;
+        xsd::Attribute<t_road_planView_geometry_spiral> sub_spiral;
         xsd::d_double _hdg;
         t_grEqZero _length;
         t_grEqZero _s;

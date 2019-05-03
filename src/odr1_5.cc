@@ -299,6 +299,28 @@ namespace odr1_5 {
         if (elem->Attribute("y") != nullptr)
             obj._y = elem->DoubleAttribute("y", 0.0);
 
+        const tinyxml2::XMLElement *e;
+
+        e = elem->FirstChildElement("arc");
+        if (e != nullptr)
+            __parse__t_road_planView_geometry_arc(e, *(obj.sub_arc.create()));
+
+        e = elem->FirstChildElement("line");
+        if (e != nullptr)
+            __parse__t_road_planView_geometry_line(e, *(obj.sub_line.create()));
+
+        e = elem->FirstChildElement("paramPoly3");
+        if (e != nullptr)
+            __parse__t_road_planView_geometry_paramPoly3(e, *(obj.sub_paramPoly3.create()));
+
+        e = elem->FirstChildElement("poly3");
+        if (e != nullptr)
+            __parse__t_road_planView_geometry_poly3(e, *(obj.sub_poly3.create()));
+
+        e = elem->FirstChildElement("spiral");
+        if (e != nullptr)
+            __parse__t_road_planView_geometry_spiral(e, *(obj.sub_spiral.create()));
+
 
         return true;
 

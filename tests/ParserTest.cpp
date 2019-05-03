@@ -23,12 +23,22 @@ TEST(ParserTest, LoadODRFile15) {
     const auto &roads = odrr->sub_road;
     EXPECT_EQ(36, roads.size());
 
-    EXPECT_EQ(1, odrr->sub_road.front().sub_lanes->sub_laneSection.size());
-    EXPECT_EQ(2, odrr->sub_road.front().sub_lanes->sub_laneSection.front().sub_left->sub_lane.size());
-    EXPECT_EQ(1, *odrr->sub_road.front().sub_lanes->sub_laneSection.front().sub_left->sub_lane.back()._id);
-    EXPECT_EQ(2, *odrr->sub_road.front().sub_lanes->sub_laneSection.front().sub_left->sub_lane.front()._id);
-    EXPECT_DOUBLE_EQ(1.5,
-                     *odrr->sub_road.front().sub_lanes->sub_laneSection.front().sub_left->sub_lane.front().sub_width.front()._a);
+
+    const auto &rd = odrr->sub_road.front();
+
+    EXPECT_EQ(1, rd.sub_lanes->sub_laneSection.size());
+    EXPECT_EQ(2, rd.sub_lanes->sub_laneSection.front().sub_left->sub_lane.size());
+    EXPECT_EQ(1, *rd.sub_lanes->sub_laneSection.front().sub_left->sub_lane.back()._id);
+    EXPECT_EQ(2, *rd.sub_lanes->sub_laneSection.front().sub_left->sub_lane.front()._id);
+    EXPECT_DOUBLE_EQ(1.5, *rd.sub_lanes->sub_laneSection.front().sub_left->sub_lane.front().sub_width.front()._a);
+
+    EXPECT_TRUE(rd.sub_planView->sub_geometry.front().sub_line);
+    EXPECT_TRUE(rd.sub_planView->sub_geometry.at(1).sub_spiral);
+    EXPECT_TRUE(rd.sub_planView->sub_geometry.at(2).sub_arc);
+
+    EXPECT_FALSE(rd.sub_planView->sub_geometry.front().sub_arc);
+    EXPECT_FALSE(rd.sub_planView->sub_geometry.at(1).sub_line);
+    EXPECT_FALSE(rd.sub_planView->sub_geometry.at(2).sub_spiral);
 
 }
 

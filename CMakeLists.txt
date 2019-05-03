@@ -1,7 +1,7 @@
 cmake_minimum_required(VERSION 3.10)
 # based on https://cliutils.gitlab.io/modern-cmake/
 
-project(OpenDRIVE-Parser VERSION 0.1
+project(odrparser VERSION 0.1
         DESCRIPTION "A very simple OpenDRIVE parser"
         LANGUAGES CXX)
 
