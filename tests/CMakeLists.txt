@@ -1,5 +1,3 @@
-include(AddGoogleTest)
-
 add_executable(ParserTest ParserTest.cpp)
 target_include_directories(ParserTest PRIVATE ${ODRPARSER_LIB_DIR}/include)
 target_link_libraries(ParserTest PRIVATE odr)

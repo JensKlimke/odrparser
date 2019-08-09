@@ -1,5 +1,3 @@
-include(AddTinyXml2)
-
 add_library(odr STATIC
         ${ODRPARSER_LIB_DIR}/include/odr/lib.h
         ${ODRPARSER_LIB_DIR}/include/odr/Attribute.h
