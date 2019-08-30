@@ -17,7 +17,10 @@ namespace odr {
         // load and check file
         tinyxml2::XMLError eResult = xml_doc.LoadFile(filename.c_str());
         if (eResult != tinyxml2::XML_SUCCESS)
-            throw std::runtime_error("File could not be loaded!");
+            if(eResult == tinyxml2::XML_ERROR_FILE_NOT_FOUND)
+                throw std::runtime_error("File not found!");
+            else
+                throw std::runtime_error("File could not be loaded!");
 
         // get OpenDRIVE element
         auto od = xml_doc.FirstChildElement("OpenDRIVE");
