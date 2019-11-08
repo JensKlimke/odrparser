@@ -1,0 +1,19 @@
+language: cpp
+
+os:
+  - linux
+  - osx
+
+compiler:
+  - gcc
+  - clang
+
+script:
+  ############################################################################
+  # Build main and tests
+  ############################################################################
+  - mkdir build
+  - cd build
+  - cmake -DCMAKE_BUILD_TYPE=Debug -DBUILD_TESTS=ON ..
+  - make
+  - make test
