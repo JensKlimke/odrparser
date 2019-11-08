@@ -1,6 +1,8 @@
 # opendrive-parser
 A very simple OpenDRIVE parser
 
+[![Build Status](https://travis-ci.com/JensKlimke/odrparser.svg?branch=master)](https://travis-ci.com/JensKlimke/odrparser)
+
 ## Usage
 
 Create with cmake and compile
