@@ -1,3 +1,5 @@
+#include <memory>
+
 //
 // Copyright (c) 2019 Jens Klimke <jens.klimke@rwth-aachen.de>. All rights reserved.
 //
@@ -50,7 +52,7 @@ namespace odr {
             throw std::runtime_error("OpenDRIVE element bot found");
 
         // parse OpenDRIVE element
-        data.OpenDRIVE1_5.reset(new odr1_5::OpenDRIVE);
+        data.OpenDRIVE1_5 = std::make_shared<odr1_5::OpenDRIVE>();
         __parse__OpenDRIVE(od, *data.OpenDRIVE1_5);
 
     }
