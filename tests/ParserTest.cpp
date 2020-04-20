@@ -41,12 +41,14 @@ TEST(ParserTest, DemoCode) {
     odr::OpenDRIVEFile odrFile;
     odr::loadFile(ss.str(), odrFile);
     odr1_5::OpenDRIVE *odrr = odrFile.OpenDRIVE1_5.get();
+
     const auto header = odrr->sub_header.get();
-    std::cout << *header->_date << std::endl; // e.g. "Thu Feb  8 14:24:06 2007"
     const auto &roads = odrr->sub_road;
-    std::cout << roads.size() << std::endl; // e.g. 36
     const auto &rd = odrr->sub_road.front();
-    std::cout << rd.sub_lanes->sub_laneSection.size() << std::endl; // e.g. 1
+
+    EXPECT_EQ(std::string("Thu Feb  8 14:24:06 2007"), *header->_date);
+    EXPECT_EQ(36, roads.size() );
+    EXPECT_EQ(1, rd.sub_lanes->sub_laneSection.size());
 
 }
 
@@ -88,25 +90,3 @@ TEST(ParserTest, LoadODRFile15) {
     EXPECT_FALSE(rd.sub_planView->sub_geometry.at(2).sub_spiral);
 
 }
-
-
-/*TEST(ParserTest, LoadODRFile14) {
-
-    odr::OpenDRIVEFile odrFile;
-    odr::loadFile("tests/resources/sample1.1.xodr", odrFile);
-
-    odr1_4::OpenDRIVE *odrr = odrFile.OpenDRIVE1_4.get();
-
-    const auto header = odrr->sub_header.get();
-    EXPECT_EQ("Thu Feb  8 14:24:06 2007", *header->_date);
-
-    const auto &roads = odrr->sub_road;
-    EXPECT_EQ(36, roads.size());
-
-    EXPECT_EQ(1, odrr->sub_road.front().sub_lanes->sub_laneSection.size());
-    EXPECT_EQ(2, odrr->sub_road.front().sub_lanes->sub_laneSection.front().sub_left->sub_lane.size());
-    EXPECT_EQ(1, *odrr->sub_road.front().sub_lanes->sub_laneSection.front().sub_left->sub_lane.back()._id);
-    EXPECT_EQ(2, *odrr->sub_road.front().sub_lanes->sub_laneSection.front().sub_left->sub_lane.front()._id);
-    EXPECT_DOUBLE_EQ(1.5, *odrr->sub_road.front().sub_lanes->sub_laneSection.front().sub_left->sub_lane.front().sub_width.front()._a);
-
-}*/

@@ -5,8 +5,17 @@ os:
   - osx
 
 compiler:
+  ######################
+  # Compilers
+  ######################
   - gcc
   - clang
+
+before_script:
+  ######################
+  # Create build directory
+  ######################
+  - git clone https://github.com/google/googletest
 
 script:
   ############################################################################
