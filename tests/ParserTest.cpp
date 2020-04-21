@@ -37,18 +37,26 @@ TEST(ParserTest, DemoCode) {
     std::stringstream ss;
     ss << TRACKS_DIR << "/sample1.1.xodr";
 
-    // Demo code here:
-    odr::OpenDRIVEFile odrFile;
-    odr::loadFile(ss.str(), odrFile);
-    odr1_5::OpenDRIVE *odrr = odrFile.OpenDRIVE1_5.get();
+    // create container instance
+    odr::OpenDRIVEFile odrData;
 
+    // load xml file content to container (replace <...> by the file name)
+    odr::loadFile(ss.str(), odrData);
+
+    // pointer to the ODR data
+    odr1_5::OpenDRIVE *odrr = odrData.OpenDRIVE1_5.get();
+
+    // access the header
     const auto header = odrr->sub_header.get();
-    const auto &roads = odrr->sub_road;
-    const auto &rd = odrr->sub_road.front();
+    std::cout << *header->_date << std::endl; // e.g. "Thu Feb  8 14:24:06 2007"
 
-    EXPECT_EQ(std::string("Thu Feb  8 14:24:06 2007"), *header->_date);
-    EXPECT_EQ(36, roads.size() );
-    EXPECT_EQ(1, rd.sub_lanes->sub_laneSection.size());
+    // access the roads vector
+    const auto &roads = odrr->sub_road;
+    std::cout << roads.size() << std::endl; // e.g. 36
+
+    // access a single road content
+    const auto &rd = odrr->sub_road.front();
+    std::cout << rd.sub_lanes->sub_laneSection.size() << std::endl; // e.g. 1
 
 }
 
