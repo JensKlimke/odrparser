@@ -21,8 +21,9 @@ add_subdirectory(src)
 ## Add tinyxml2
 set(BUILD_TESTING off CACHE BOOL "" FORCE)
 set(BUILD_SHARED_LIBS off CACHE BOOL "" FORCE)
+
 add_subdirectory(lib/tinyxml2)
-set_target_properties(tinyxml2 PROPERTIES FOLDER "Extern")
+# set_target_properties(tinyxml2 PROPERTIES FOLDER "Extern")
 
 
 ### GTEST
