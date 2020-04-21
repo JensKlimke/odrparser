@@ -26,19 +26,29 @@
 #define OPENDRIVE_PARSER_LIB_H
 
 #include <string>
-//#include "odr1_4_structure.h"
 #include "odr1_5_structure.h"
 
 namespace odr {
 
+
+    /**
+     * @brief The container class for the ODR content.
+     * This container can be used directly or a sub-class can be created containing the methods to
+     * intereprete the ODR content.
+     */
     struct OpenDRIVEFile {
         std::shared_ptr<odr1_5::OpenDRIVE> OpenDRIVE1_5{};
-//        std::shared_ptr<odr1_4::OpenDRIVE> OpenDRIVE1_4{};
     };
 
+
+    /**
+     * Loads a OpenDRIVE 1.5 Rev. M XML file into the memory held by the given container instance
+     * @param filename File name of the ODR XML file
+     * @param data Data container
+     */
     void loadFile(const std::string &filename, OpenDRIVEFile &data);
 
 }
 
 
-#endif //OPENDRIVE_PARSER_LIB_H
+#endif // OPENDRIVE_PARSER_LIB_H
