@@ -6,5 +6,5 @@ add_library(odr STATIC
         loadFile.cc
         )
 
-target_include_directories(odr PRIVATE ${PROJECT_SOURCE_DIR}/include ${tinyxml_SOURCE_DIR})
+target_include_directories(odr PRIVATE ${PROJECT_SOURCE_DIR}/include PRIVATE ${tinyxml_SOURCE_DIR})
 target_link_libraries(odr PUBLIC tinyxml2)
