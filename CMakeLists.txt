@@ -1,11 +1,13 @@
 cmake_minimum_required(VERSION 3.10)
 # based on https://cliutils.gitlab.io/modern-cmake/
 
-project(odrparser
+# define project
+project(ODRParser
+        VERSION 1.0.0
         DESCRIPTION "A very simple OpenDRIVE parser"
         LANGUAGES CXX)
 
-
+# c++ version
 set(CMAKE_CXX_STANDARD 14)
 
 # add ./cmake to CMAKE_MODULE_PATH
@@ -18,13 +20,12 @@ option(BUILD_GTEST "Sets or unsets the option to build gtest manually (do not se
 # add source directory
 add_subdirectory(src)
 
-## Add tinyxml2
+## add tinyxml2
 set(BUILD_TESTING off CACHE BOOL "" FORCE)
 set(BUILD_SHARED_LIBS off CACHE BOOL "" FORCE)
 
+# load tinyxml2
 add_subdirectory(lib/tinyxml2 EXCLUDE_FROM_ALL)
-# set_target_properties(tinyxml2 PROPERTIES FOLDER "Extern")
-
 
 ### GTEST
 if ((CMAKE_PROJECT_NAME STREQUAL PROJECT_NAME) AND BUILD_TESTS)
@@ -38,7 +39,7 @@ if ((CMAKE_PROJECT_NAME STREQUAL PROJECT_NAME) AND BUILD_TESTS)
         # add subdirectory
         add_subdirectory(googletest EXCLUDE_FROM_ALL)
         set(GTEST_BOTH_LIBRARIES gtest_main)
-        include_directories(${PROJECT_SOURCE_DIR}/googletest/googletest/include)
+        include_directories(./googletest/googletest/include)
 
     else()
 
