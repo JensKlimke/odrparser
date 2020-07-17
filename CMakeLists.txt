@@ -27,13 +27,13 @@ add_subdirectory(lib/tinyxml2)
 
 
 ### GTEST
-if(BUILD_TESTS)
+if ((CMAKE_PROJECT_NAME STREQUAL PROJECT_NAME) AND BUILD_TESTS)
 
     # enable testing and load library
     enable_testing()
 
     # switch (build or use installed lib)
-    if(BUILD_GTEST)
+    if (BUILD_GTEST)
 
         # add subdirectory
         add_subdirectory(googletest)
