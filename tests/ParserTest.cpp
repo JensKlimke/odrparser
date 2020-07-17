@@ -23,7 +23,7 @@
 //
 
 #include <gtest/gtest.h>
-#include <odr/lib.h>
+#include <odrparser/odrparser.h>
 #include <sstream>
 
 #ifndef TRACKS_DIR

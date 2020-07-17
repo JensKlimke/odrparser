@@ -32,6 +32,8 @@
 *.app
 
 cmake-*
+build*
+install*
 .idea
 test/generated*
 googletest

@@ -27,7 +27,7 @@
 #include <string>
 #include <tinyxml2.h>
 
-#include <odr/odr1_5_structure.h>
+#include <odrparser/odr1_5_structure.h>
 
 namespace odr1_5 {
 

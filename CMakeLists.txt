@@ -22,7 +22,7 @@ add_subdirectory(src)
 set(BUILD_TESTING off CACHE BOOL "" FORCE)
 set(BUILD_SHARED_LIBS off CACHE BOOL "" FORCE)
 
-add_subdirectory(lib/tinyxml2)
+add_subdirectory(lib/tinyxml2 EXCLUDE_FROM_ALL)
 # set_target_properties(tinyxml2 PROPERTIES FOLDER "Extern")
 
 
@@ -36,7 +36,7 @@ if ((CMAKE_PROJECT_NAME STREQUAL PROJECT_NAME) AND BUILD_TESTS)
     if (BUILD_GTEST)
 
         # add subdirectory
-        add_subdirectory(googletest)
+        add_subdirectory(googletest EXCLUDE_FROM_ALL)
         set(GTEST_BOTH_LIBRARIES gtest_main)
         include_directories(${PROJECT_SOURCE_DIR}/googletest/googletest/include)
 
