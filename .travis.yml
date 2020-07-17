@@ -1,19 +1,34 @@
 language: cpp
 
+######################
+# Operating systems
+######################
 os:
   - linux
   - osx
 
+
 compiler:
+  ######################
+  # Compilers
+  ######################
   - gcc
   - clang
 
-script:
-  ############################################################################
-  # Build main and tests
-  ############################################################################
+
+before_script:
+  ######################
+  # Create build directory
+  ######################
+  - git clone https://github.com/google/googletest
   - mkdir build
   - cd build
-  - cmake -DCMAKE_BUILD_TYPE=Debug -DBUILD_TESTS=ON ..
+
+
+script:
+  ######################
+  # cmake and build
+  ######################
+  - cmake -DBUILD_TESTS=ON -DBUILD_GTEST=ON -DCMAKE_BUILD_TYPE=Debug ..
   - make
   - make test

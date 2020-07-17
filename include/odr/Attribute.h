@@ -32,18 +32,37 @@
 namespace xsd {
 
 
+    /**
+     * @brief A wrapper class for a shared_ptr to store ODR attributes
+     * @tparam T Type of the attribute
+     */
     template<typename T>
     struct Attribute : public std::shared_ptr<T> {
 
+        /**
+         * Constructor
+         */
         Attribute() = default;
 
+        /**
+         * Destructor
+         */
         virtual ~Attribute() = default;
 
+        /**
+         * Operator to set the content. A new instance of the corresponding data type is created.
+         * @param v Value of the attribute
+         * @return The attribute
+         */
         Attribute<T> &operator=(const T &v) {
             this->reset(new T(v));
             return *this;
         }
 
+        /**
+         * Creates a new attribute by instancing an object.
+         * @return The attribute
+         */
         Attribute<T> &create() {
             this->reset(new T);
             return *this;
@@ -51,14 +70,22 @@ namespace xsd {
 
     };
 
-
+    /*!< Attribute of type double */
     typedef Attribute<double> d_double;
+
+    /*!< Attribute of type int */
     typedef Attribute<int> d_int;
+
+    /*!< Attribute of type unsigned int */
     typedef Attribute<unsigned int> d_uint;
+
+    /*!< Attribute of type std::string */
     typedef Attribute<std::string> d_string;
+
+    /*!< Attribute of type float */
     typedef Attribute<float> d_float;
 
-
+    /*!< A shortcut for and std::vector<T> */
     template<typename T>
     using Vector = std::vector<T>;
 
