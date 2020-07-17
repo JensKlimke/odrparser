@@ -20,7 +20,7 @@ before_install:
   # Dependencies
   ######################
   - sudo apt-get update
-  - sudo apt-get -y install libpthread-stubs0-dev
+  - sudo apt-get -y install g++ libpthread-stubs0-dev
 
 before_script:
   ######################
