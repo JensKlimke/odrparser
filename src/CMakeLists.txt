@@ -27,5 +27,9 @@ set_target_properties(PROPERTIES
 include(GNUInstallDirs)
 
 # install commands
-install(TARGETS odrparser LIBRARY DESTINATION lib)
-install(FILES ${HEADER_INCLUDE_FILES} DESTINATION include/odrparser)
+install(TARGETS odrparser
+        ARCHIVE DESTINATION lib
+        LIBRARY DESTINATION lib
+        COMPONENT library)
+install(FILES ${HEADER_INCLUDE_FILES}
+        DESTINATION include/odrparser)
