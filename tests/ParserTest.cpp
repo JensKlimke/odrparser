@@ -44,7 +44,7 @@ TEST(ParserTest, DemoCode) {
     odr::loadFile(ss.str(), odrData);
 
     // pointer to the ODR data
-    odr1_5::OpenDRIVE *odrr = odrData.OpenDRIVE1_5.get();
+    odr_1_5::OpenDRIVE *odrr = odrData.OpenDRIVE1_5.get();
 
     // access the header
     const auto header = odrr->sub_header.get();
@@ -72,7 +72,7 @@ TEST(ParserTest, LoadODRFile15) {
 
     // load file
     odr::loadFile(ss.str(), odrFile);
-    odr1_5::OpenDRIVE *odrr = odrFile.OpenDRIVE1_5.get();
+    odr_1_5::OpenDRIVE *odrr = odrFile.OpenDRIVE1_5.get();
 
     const auto header = odrr->sub_header.get();
     EXPECT_EQ("Thu Feb  8 14:24:06 2007", *header->_date);

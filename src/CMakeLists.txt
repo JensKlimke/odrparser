@@ -1,8 +1,6 @@
 add_library(odrparser STATIC
-        ${PROJECT_SOURCE_DIR}/include/odrparser/odrparser.h
-        ${PROJECT_SOURCE_DIR}/include/odrparser/Attribute.h
-        ${PROJECT_SOURCE_DIR}/include/odrparser/odr1_5_structure.h
-        odr1_5.cc odr1_5.hpp
+        odr_1_5.cc
+        odr_1_5.hpp
         loadFile.cc
         )
 

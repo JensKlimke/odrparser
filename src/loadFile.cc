@@ -27,7 +27,7 @@
 #include <string>
 #include <tinyxml2.h>
 #include <odrparser/odrparser.h>
-#include "odr1_5.hpp"
+#include "odr_1_5.hpp"
 
 namespace odr {
 
@@ -52,7 +52,7 @@ namespace odr {
             throw std::runtime_error("OpenDRIVE element bot found");
 
         // parse OpenDRIVE element
-        data.OpenDRIVE1_5 = std::make_shared<odr1_5::OpenDRIVE>();
+        data.OpenDRIVE1_5 = std::make_shared<odr_1_5::OpenDRIVE>();
         __parse__OpenDRIVE(od, *data.OpenDRIVE1_5);
 
     }

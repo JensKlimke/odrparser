@@ -1,5 +1,4 @@
-//
-// Copyright (c) 2019 Jens Klimke <jens.klimke@rwth-aachen.de>. All rights reserved.
+// Copyright (c) 2020 Jens Klimke (jens.klimke@rwth-aachen.de). All rights reserved.
 //
 // Permission is hereby granted, free of charge, to any person obtaining a copy
 // of this software and associated documentation files (the "Software"), to deal
@@ -19,10 +18,12 @@
 // OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 // SOFTWARE.
 //
+// Generated with xsd2cpp (https://github.com/JensKlimke/xsd2cpp) on 2020-08-13
+//
 
-#include "odr1_5.hpp"
+#include "odr_1_5.hpp"
 
-namespace odr1_5 {
+namespace odr_1_5 {
 
     bool __parse__t_header(const tinyxml2::XMLElement *elem, t_header &obj) {
 
@@ -2693,4 +2694,4 @@ namespace odr1_5 {
     }
 
 
-} // namespace odr1_5
+} // namespace odr_1_5

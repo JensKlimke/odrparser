@@ -1,5 +1,4 @@
-//
-// Copyright (c) 2019 Jens Klimke <jens.klimke@rwth-aachen.de>. All rights reserved.
+// Copyright (c) 2020 Jens Klimke (jens.klimke@rwth-aachen.de). All rights reserved.
 //
 // Permission is hereby granted, free of charge, to any person obtaining a copy
 // of this software and associated documentation files (the "Software"), to deal
@@ -19,14 +18,44 @@
 // OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 // SOFTWARE.
 //
+// Generated with xsd2cpp (https://github.com/JensKlimke/xsd2cpp) on 2020-08-13
+//
 
-#ifndef XML_PARSER_ODR1_5_STRUCTURE_H
-#define XML_PARSER_ODR1_5_STRUCTURE_H
+#ifndef ODR_1_5_STRUCTURE_H
+#define ODR_1_5_STRUCTURE_H
 
-#include "Attribute.h"
 #include <string>
+#include <memory>
+#include <vector>
 
-namespace odr1_5 {
+namespace odr_1_5 {
+
+    namespace xsd {
+        template<typename T>
+        struct Attribute : public std::shared_ptr<T> {
+            Attribute() = default;
+
+            virtual ~Attribute() = default;
+
+            Attribute<T> &operator=(const T &v) {
+                this->reset(new T(v));
+                return *this;
+            }
+
+            Attribute<T> &create() {
+                this->reset(new T);
+                return *this;
+            }
+        };
+
+        typedef Attribute<double> d_double;
+        typedef Attribute<int> d_int;
+        typedef Attribute<unsigned int> d_uint;
+        typedef Attribute<std::string> d_string;
+        typedef Attribute<float> d_float;
+        template<typename T>
+        using Vector = std::vector<T>;
+    } // namespace xsd
 
     typedef xsd::d_double t_grEqZero;
     typedef xsd::d_double t_grZero;
@@ -946,6 +975,6 @@ namespace odr1_5 {
     };
 
 
-} // namespace odr1_5
+} // namespace odr_1_5
 
-#endif // XML_PARSER_ODR1_5_STRUCTURE_H
+#endif // ODR_1_5_STRUCTURE_H

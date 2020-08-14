@@ -26,7 +26,7 @@
 #define OPENDRIVE_PARSER_LIB_H
 
 #include <string>
-#include "odr1_5_structure.h"
+#include "odr_1_5.h"
 
 namespace odr {
 
@@ -37,7 +37,7 @@ namespace odr {
      * intereprete the ODR content.
      */
     struct OpenDRIVEFile {
-        std::shared_ptr<odr1_5::OpenDRIVE> OpenDRIVE1_5{};
+        std::shared_ptr<odr_1_5::OpenDRIVE> OpenDRIVE1_5{};
     };
 
 
